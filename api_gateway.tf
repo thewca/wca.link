@@ -5,12 +5,12 @@ resource "aws_api_gateway_rest_api" "wcalink_gateway" {
 }
 # Certificate for the https endpoint of the API Gateway
 resource "aws_acm_certificate" "cert" {
-  domain_name       = "replaceme.ickler.cloud"
+  domain_name       = "wca.link"
   validation_method = "DNS"
 }
 # Route 53 Zone
 data "aws_route53_zone" "zone" {
-  name         = "ickler.cloud."
+  name         = "wca.link."
   private_zone = false
 }
 
