@@ -6,6 +6,9 @@ def parse_route(location)
       "https://www.worldcubeassociation.org/persons/#{$1}"
     when /^\/([^\/]+)([0-9][0-9][0-9][0-9])$/ # Competition ID
       "https://www.worldcubeassociation.org/competitions/#{$1}#{$2}"
+    when /^\/youtube$/
+    when /^\/yt$/
+      "https://www.youtube.com/channel/UC5OUMUnS8PvY1RvtB1pQZ0g"
     when /^\/(.*)$/
       "https://www.worldcubeassociation.org/#{$1}"
     end
