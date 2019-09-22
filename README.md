@@ -2,7 +2,10 @@
 
 # Deploy
 
+    # Verify what will happen in the deploy.
     make test
+
+    # This may ask you to type `yes` to confirm.
     make deploy
 
 # Setup
