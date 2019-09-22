@@ -1,5 +1,10 @@
 # wca.link
 
+# Deploy
+
+    make test
+    make deploy
+
 # Setup
 
 ## macOS
