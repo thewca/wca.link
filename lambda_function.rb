@@ -29,6 +29,8 @@ def parse_route(location)
     "https://www.instagram.com/thewcaofficial/"
   when /^\/(facebook|fb)$/
     "https://www.facebook.com/WorldCubeAssociation/"
+  when /^\/twitter$/
+    "https://www.twitter.com/theWCAofficial/"
   when /^\/reddit$/
     "https://www.reddit.com/r/TheWCAOfficial/"
   when /^\/twitch$/
