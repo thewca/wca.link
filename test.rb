@@ -16,3 +16,13 @@ puts lambda_handler(event: {
   "path" => "/api",
   "httpMethod" => "POST"
 }, context: {})
+
+puts lambda_handler(event: {
+  "path" => "/E2c1++",
+  "httpMethod" => "GET"
+}, context: {})
+
+puts lambda_handler(event: {
+  "path" => "/9f12c",
+  "httpMethod" => "GET"
+}, context: {})

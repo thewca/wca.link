@@ -20,6 +20,10 @@ def parse_route(location)
     "https://live.worldcubeassociation.org/competitions/#{$1}#{$2}"
   when /^\/([^\/]+)([0-9][0-9][0-9][0-9])\/live$/
     "https://live.worldcubeassociation.org/competitions/#{$1}#{$2}"
+  # Regulations and Guidelines
+  when /^\/([0-9]{1,2}[a-z]([0-9]{1,2}[a-z]?)?|[A-Z][0-9]{1,2}([a-z][0-9]{1,2}?)?)(\+*)$/
+    guidelines_page = "#{$4}" == "" ? "" : "guidelines.html"
+    "https://www.worldcubeassociation.org/regulations/#{guidelines_page}\##{$1}#{$4}"
   # Social Media
   when /^\/(instagram|ig)$/
     "https://www.instagram.com/thewcaofficial/"
