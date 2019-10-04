@@ -1,5 +1,6 @@
 .PHONY: test
 test: build/lambda_function_payload.zip
+	bin/rspec
 	terraform plan
 
 .PHONY: deploy
