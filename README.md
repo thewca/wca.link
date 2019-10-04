@@ -22,3 +22,7 @@ If this happens, `make deploy` should print the lock info, and you can use `terr
     aws configure
     terraform init
     terraform plan
+
+## Tests
+
+    bundle install
