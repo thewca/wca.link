@@ -31,7 +31,7 @@ resource "aws_lambda_function" "wcalink_lambda" {
   # source_code_hash = "${base64sha256(file("build/lambda_function_payload.zip"))}"
   source_code_hash = "${filebase64sha256("build/lambda_function_payload.zip")}"
 
-  runtime = "ruby2.5"
+  runtime = "ruby2.7"
 }
 # The Proxy Ressource Makes it possible for a whole path to be handled by
 # the same lambda
