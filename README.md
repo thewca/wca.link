@@ -8,6 +8,8 @@
     # This may ask you to type `yes` to confirm.
     make deploy
 
+If you are asked for a region, enter: `us-west-2`.
+
 ## Lock
 
 The deployment uses a lock. If something goes wrong (or you abort mid-deploy), the lock may never be released.
