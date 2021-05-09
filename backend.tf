@@ -6,7 +6,6 @@
 # create an S3 bucket to store the state file in
 resource "aws_s3_bucket" "terraform-state-storage-s3" {
   bucket = "wca-terraform-state"
-  region = "us-west-2"
 
   versioning {
     # enable with caution, makes deleting S3 buckets tricky
