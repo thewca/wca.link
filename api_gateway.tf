@@ -30,10 +30,10 @@ resource "aws_route53_zone" "zone" {
 
 # Validate the Certificate with Route 53
 resource "aws_route53_record" "cert_validation" {
-  name    = "${aws_acm_certificate.cert.domain_validation_options.0.resource_record_name}"
-  type    = "${aws_acm_certificate.cert.domain_validation_options.0.resource_record_type}"
+  name    = "${tolist(aws_acm_certificate.cert.domain_validation_options)[0].resource_record_name}"
+  type    = "${tolist(aws_acm_certificate.cert.domain_validation_options)[0].resource_record_type}"
   zone_id = "${aws_route53_zone.zone.id}"
-  records = ["${aws_acm_certificate.cert.domain_validation_options.0.resource_record_value}"]
+  records = ["${tolist(aws_acm_certificate.cert.domain_validation_options)[0].resource_record_value}"]
   ttl     = 60
   allow_overwrite = true # Workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/7918#issuecomment-503794355
 }
