@@ -20,7 +20,7 @@ If this happens, `make deploy` should print the lock info, and you can use `terr
 ## macOS
 
     brew install awscli terraform
-    # See https://docs.google.com/document/d/1WYYUg5RukgCSA7Mt6xfQ1ZCpYzax8ksekcp8PMMBSOg/edit# for AWS CLI config
+    # Please configure with your own personal AWS credentials. Region should be "us-west-2", output format should be "json" (both without quotes).
     aws configure
     terraform init
     terraform plan
