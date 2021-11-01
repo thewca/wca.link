@@ -56,6 +56,9 @@ def parse_route(location)
     "https://www.cubecomps.com"
   when /^\/live$/
     "https://live.worldcubeassociation.org"
+  # Shop
+  when /^\/shop$/
+    "https://shop.worldcubeassociation.org"
   # Communication
   when /^\/slack$/
     "https://worldcubeassociation.slack.com"
