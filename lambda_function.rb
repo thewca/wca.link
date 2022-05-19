@@ -17,7 +17,7 @@ def parse_route(location)
   when /^\/([^\/]+)([0-9][0-9][0-9][0-9])$/
     "https://www.worldcubeassociation.org/competitions/#{$1}#{$2}"
   when /^\/live\/([^\/]+)([0-9][0-9][0-9][0-9])$/
-    "https://live.worldcubeassociation.org/competitions/#{$1}#{$2}"
+    "https://live.worldcubeassociation.org/link/competitions/#{$1}#{$2}"
   when /^\/([^\/]+)([0-9][0-9][0-9][0-9])\/live$/
     # Note: `/live/CompetitionName2019` is the canonical short link, recommended
     # over `/CompetitionName2019/live` when posting a link.
@@ -26,7 +26,7 @@ def parse_route(location)
     # happen if they're going by vague memory rather than reading the URL
     # directly.) That way, we take them where they're clearly trying to go,
     # instead of causing confusion or annoyance.
-    "https://live.worldcubeassociation.org/competitions/#{$1}#{$2}"
+    "https://live.worldcubeassociation.org/link/competitions/#{$1}#{$2}"
   # Regulations and Guidelines
   when /^\/([0-9]{1,2}[a-z]([0-9]{1,2}[a-z]?)?|[A-Z][0-9]{1,2}([a-z]([0-9]{1,2})?)?)(\+*)$/
     guidelines_page = "#{$5}" == "" ? "" : "guidelines.html"
