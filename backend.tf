@@ -7,11 +7,6 @@
 resource "aws_s3_bucket" "terraform-state-storage-s3" {
   bucket = "wca-terraform-state"
 
-  versioning {
-    # enable with caution, makes deleting S3 buckets tricky
-    enabled = false
-  }
-
   lifecycle {
     prevent_destroy = true
   }
@@ -21,8 +16,8 @@ resource "aws_s3_bucket" "terraform-state-storage-s3" {
 resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
   name = "wca-terraform-state-lock-dynamo"
   hash_key = "LockID"
-  read_capacity = 20
-  write_capacity = 20
+  read_capacity = 5
+  write_capacity = 5
 
   attribute {
     name = "LockID"
