@@ -8,8 +8,10 @@ def parse_route(location)
   when /^\/(api|oauth)(\/.*)?$/
     return nil
   # Website (Reserved)
-  when /^\/(about|admin|competitions|contact|delegates|documents|faq|notifications|organizations|panel|persons|privacy|profile|regulations|results|search|teams-committees|tutorial|users).*$/
+  when /^\/(about|admin|competitions|contact|delegates|documents|faq|notifications|organizations|panel|persons|privacy|profile|regulations|search|teams-committees|tutorial|users).*$/
     "https://www.worldcubeassociation.org/#{$1}"
+  when /^\/(results)$/
+    "https://www.worldcubeassociation.org/results/rankings"
   # Website
   when /^\/([0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z][A-Z][0-9][0-9])$/ #WCA ID
     "https://www.worldcubeassociation.org/persons/#{$1}"
