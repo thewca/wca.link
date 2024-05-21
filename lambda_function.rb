@@ -10,12 +10,13 @@ def parse_route(location)
   # Website (Reserved)
   when /^\/(about|admin|competitions|contact|delegates|documents|faq|notifications|organizations|panel|persons|privacy|profile|regulations|search|teams-committees|tutorial|users).*$/
     "https://www.worldcubeassociation.org/#{$1}"
-  # Rankings
-  when /^\/(results|rankings).*$/
-    "https://www.worldcubeassociation.org/results/rankings/#{$1}"
-  # Records
-  when /^\/(records).*$/
-    "https://www.worldcubeassociation.org/results/records/#{$1}"
+  # Rankings and Records
+  when /^\/rankings(\/.*)?$/
+    "https://www.worldcubeassociation.org/results/rankings#{$1}"
+  when /^\/records(\/.*)?$/
+    "https://www.worldcubeassociation.org/results/records#{$1}"
+  when /^\/results(\/.*)?$/
+    "https://www.worldcubeassociation.org/results/rankings#{$1}"
   # Website
   when /^\/([0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z][A-Z][0-9][0-9])$/ #WCA ID
     "https://www.worldcubeassociation.org/persons/#{$1}"
