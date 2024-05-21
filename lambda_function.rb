@@ -10,8 +10,12 @@ def parse_route(location)
   # Website (Reserved)
   when /^\/(about|admin|competitions|contact|delegates|documents|faq|notifications|organizations|panel|persons|privacy|profile|regulations|search|teams-committees|tutorial|users).*$/
     "https://www.worldcubeassociation.org/#{$1}"
-  when /^\/(records|rankings).*$/
-    "https://www.worldcubeassociation.org/results/#{$1}"
+  # Rankings
+  when /^\/(results|rankings).*$/
+    "https://www.worldcubeassociation.org/results/rankings/#{$1}"
+  # Records
+  when /^\/(records).*$/
+    "https://www.worldcubeassociation.org/results/records/#{$1}"
   # Website
   when /^\/([0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z][A-Z][0-9][0-9])$/ #WCA ID
     "https://www.worldcubeassociation.org/persons/#{$1}"
@@ -79,12 +83,12 @@ end
 def get_response(event)
   # Only allow GET requests, to discourage sending sensitive data.
   return { statusCode: 405 } unless event["httpMethod"] == "GET"
-  
+
   redirect_url = parse_route(event["path"])
 
   # If the path was on the denylist, deny access.
   return { statusCode: 404 } if redirect_url.nil?
-  
+
   # Redirect!
   { statusCode: 302, headers: { Location: redirect_url } }
 end
