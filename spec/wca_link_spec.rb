@@ -62,6 +62,33 @@ RSpec.describe "wca.link" do
       expect(E2c1__[:statusCode]).to eq 302
       expect(E2c1__[:headers][:Location]).to eq "https://www.worldcubeassociation.org/regulations/guidelines.html#E2c1++"
     end
+
+    it "records" do
+      E2c1__ = lambda_handler(event: {
+        "path" => "/records",
+        "httpMethod" => "GET"
+      }, context: {})
+      expect(E2c1__[:statusCode]).to eq 302
+      expect(E2c1__[:headers][:Location]).to eq "https://www.worldcubeassociation.org/results/records"
+    end
+
+    it "rankings" do
+      E2c1__ = lambda_handler(event: {
+        "path" => "/rankings",
+        "httpMethod" => "GET"
+      }, context: {})
+      expect(E2c1__[:statusCode]).to eq 302
+      expect(E2c1__[:headers][:Location]).to eq "https://www.worldcubeassociation.org/results/rankings"
+    end
+
+    it "results with event" do
+      E2c1__ = lambda_handler(event: {
+        "path" => "/results/333/single",
+        "httpMethod" => "GET"
+      }, context: {})
+      expect(E2c1__[:statusCode]).to eq 302
+      expect(E2c1__[:headers][:Location]).to eq "https://www.worldcubeassociation.org/results/rankings/333/single"
+    end
   end
 end
 
